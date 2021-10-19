@@ -1,9 +1,9 @@
 class HelloNbbrd < Formula
-  desc "Sandbox - CLI"
+  desc "Sandbox - Binaries"
   homepage "https://github.com/nbbrd/sandbox"
-  version "1.17.4"
-  url "https://github.com/nbbrd/sandbox/releases/download/v1.17.4/hello-nbbrd-1.17.4-bin.jar", :using => :nounzip
-  sha256 "a3b0567593328701a131801d470930a009a8e643beff94a584a0ec6abfa5ae48"
+  version "2.0.0"
+  url "https://github.com/nbbrd/sandbox/releases/download/v2.0.0/hello-nbbrd-2.0.0-bin.jar", :using => :nounzip
+  sha256 "ef92d051eb431d08309d48c916daf118df86cb998b619b87fec3767beeb09513"
   license "European Union Public Licence (EUPL)"
 
   bottle :unneeded
@@ -11,16 +11,12 @@ class HelloNbbrd < Formula
   depends_on "openjdk@8"
 
   def install
-    File.open("hello-nbbrd", "w") do |f|
-      f << "#!/bin/bash\n"
-      f << "java -jar $JAVA_OPTS #{prefix}/hello-nbbrd-1.17.4-bin.jar \"$@\"\n"
-    end
-    prefix.install "hello-nbbrd-1.17.4-bin.jar"
-    bin.install "hello-nbbrd"
+    libexec.install "hello-nbbrd-2.0.0-bin.jar"
+    bin.write_jar_script libexec/"hello-nbbrd-2.0.0-bin.jar", "hello-nbbrd"
   end
 
   test do
     output = shell_output("#{bin}/hello-nbbrd --version")
-    assert_match "1.17.4", output
+    assert_match "2.0.0", output
   end
 end
