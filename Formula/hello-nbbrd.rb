@@ -1,21 +1,21 @@
-# Generated with JReleaser 1.0.0 at 2022-06-22T12:39:34.397919798Z
+# Generated with JReleaser 1.2.0 at 2022-09-28T08:54:34.27446657Z
 class HelloNbbrd < Formula
-  desc "Sandbox - Binaries"
+  desc "Sandbox - Bill of Materials"
   homepage "https://github.com/nbbrd/sandbox"
-  url "https://github.com/nbbrd/sandbox/releases/download/v2.2.2/hello-nbbrd-2.2.2-bin.jar", :using => :nounzip
-  version "2.2.2"
-  sha256 "f88cdc57d3b7dda8f8804abf915487d28bbef9e0dd39a1dd1a9d24f75198d896"
+  url "https://github.com/nbbrd/sandbox/releases/download/v2.2.3/sandbox-cli-2.2.3-bin.jar", :using => :nounzip
+  version "2.2.3"
+  sha256 "51bbb8dba395aeca27ae554c09ccbf5e13cf326a98a8c0fc9e3f65f3d3ff9a15"
   license "European Union Public Licence (EUPL)"
 
   depends_on "openjdk@8"
 
   def install
-    libexec.install "hello-nbbrd-2.2.2-bin.jar"
-    bin.write_jar_script libexec/"hello-nbbrd-2.2.2-bin.jar", "hello-nbbrd"
+    libexec.install "sandbox-cli-2.2.3-bin.jar"
+    bin.write_jar_script libexec/"sandbox-cli-2.2.3-bin.jar", "hello-nbbrd"
   end
 
   test do
     output = shell_output("#{bin}/hello-nbbrd --version")
-    assert_match "2.2.2", output
+    assert_match "2.2.3", output
   end
 end
