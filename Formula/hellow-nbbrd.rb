@@ -1,21 +1,21 @@
-# Generated with JReleaser 1.0.0 at 2022-06-22T12:39:34.397919798Z
+# Generated with JReleaser 1.2.0 at 2022-09-28T08:54:34.27446657Z
 class HellowNbbrd < Formula
-  desc "Sandbox - Binaries"
+  desc "Sandbox - Bill of Materials"
   homepage "https://github.com/nbbrd/sandbox"
-  url "https://github.com/nbbrd/sandbox/releases/download/v2.2.2/hellow-nbbrd-2.2.2-bin.jar", :using => :nounzip
-  version "2.2.2"
-  sha256 "c2c67f6755f3fe136b1acc4b8487c193ec15fd4592a71fe35b69c32767d27bfc"
+  url "https://github.com/nbbrd/sandbox/releases/download/v2.2.3/sandbox-desktop-2.2.3-bin.jar", :using => :nounzip
+  version "2.2.3"
+  sha256 "18c53ec4614b31bfe8996c0c001f43fa81d0be06631cfa7cad2b39690f51be03"
   license "European Union Public Licence (EUPL)"
 
   depends_on "openjdk@8"
 
   def install
-    libexec.install "hellow-nbbrd-2.2.2-bin.jar"
-    bin.write_jar_script libexec/"hellow-nbbrd-2.2.2-bin.jar", "hellow-nbbrd"
+    libexec.install "sandbox-desktop-2.2.3-bin.jar"
+    bin.write_jar_script libexec/"sandbox-desktop-2.2.3-bin.jar", "hellow-nbbrd"
   end
 
   test do
     output = shell_output("#{bin}/hellow-nbbrd --version")
-    assert_match "2.2.2", output
+    assert_match "2.2.3", output
   end
 end
