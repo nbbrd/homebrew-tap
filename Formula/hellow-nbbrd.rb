@@ -1,4 +1,4 @@
-# Generated with JReleaser 1.10.0 at 2024-02-08T15:12:06.138801686Z
+# Generated with JReleaser 1.10.0 at 2024-02-08T15:24:07.629353777Z
 
 class HellowNbbrd < Formula
   desc "Hello NBBRD"
