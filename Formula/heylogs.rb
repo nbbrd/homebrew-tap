@@ -1,28 +1,29 @@
-# Generated with JReleaser 1.9.0 at 2023-11-10T13:38:27.003625252Z
+# Generated with JReleaser 1.11.0 at 2024-04-10T07:40:11.338857614Z
+
 class Heylogs < Formula
   desc "Keep-a-changelog tool"
   homepage "https://github.com/nbbrd/heylogs"
-  url "https://github.com/nbbrd/heylogs/releases/download/v0.7.2/heylogs-cli-0.7.2-bin.jar", :using => :nounzip
-  version "0.7.2"
-  sha256 "920d3edb4424aa7ccffcbaaa0172c7d00c9acbe3e18f19438e0c94c57f7a0fc3"
+  url "https://github.com/nbbrd/heylogs/releases/download/v0.8.0/heylogs-cli-0.8.0-bin.jar", :using => :nounzip
+  version "0.8.0"
+  sha256 "db8af54697013889ff5b97663d94b4d21014f5e05af074a7be2b74b6b87d4310"
   license "European Union Public Licence (EUPL)"
 
 
   def install
-    libexec.install "heylogs-cli-0.7.2-bin.jar"
+    libexec.install "heylogs-cli-0.8.0-bin.jar"
 
     bin.mkpath
     File.open("#{bin}/heylogs", "w") do |f|
       f.write <<~EOS
         #!/bin/bash
         export JAVA_HOME="#{Language::Java.overridable_java_home_env(nil)[:JAVA_HOME]}"
-        exec "${JAVA_HOME}/bin/java" -jar #{libexec}/heylogs-cli-0.7.2-bin.jar "$@"
+        exec "${JAVA_HOME}/bin/java" -jar #{libexec}/heylogs-cli-0.8.0-bin.jar "$@"
       EOS
     end
   end
 
   test do
     output = shell_output("#{bin}/heylogs --version")
-    assert_match "0.7.2", output
+    assert_match "0.8.0", output
   end
 end
