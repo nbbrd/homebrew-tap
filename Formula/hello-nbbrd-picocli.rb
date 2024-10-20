@@ -1,30 +1,30 @@
-# Generated with JReleaser 1.10.0 at 2024-02-22T17:08:33.098680105Z
+# Generated with JReleaser 1.14.0 at 2024-10-20T18:00:12.794047695Z
 
 class HelloNbbrdPicocli < Formula
   desc "Hello NBBRD"
   homepage "https://github.com/nbbrd/sandbox"
-  url "https://github.com/nbbrd/sandbox/releases/download/v2.4.4/sandbox-picocli-2.4.4-bin.jar", :using => :nounzip
-  version "2.4.4"
-  sha256 "f8c4f44cd1190eb14c8043bb003f3a58d11d4d4a5e1b3da3492572a99788975e"
+  url "https://github.com/nbbrd/sandbox/releases/download/v2.4.5/sandbox-picocli-2.4.5-bin.jar", :using => :nounzip
+  version "2.4.5"
+  sha256 "d97209b52c8aea8d8c105a8c7e76f43107050194faba515ada835c725add2d93"
   license "European Union Public Licence (EUPL)"
 
   depends_on "openjdk@8"
 
   def install
-    libexec.install "sandbox-picocli-2.4.4-bin.jar"
+    libexec.install "sandbox-picocli-2.4.5-bin.jar"
 
     bin.mkpath
     File.open("#{bin}/hello-nbbrd-picocli", "w") do |f|
       f.write <<~EOS
         #!/bin/bash
         export JAVA_HOME="#{Language::Java.overridable_java_home_env(nil)[:JAVA_HOME]}"
-        exec "${JAVA_HOME}/bin/java" -jar #{libexec}/sandbox-picocli-2.4.4-bin.jar "$@"
+        exec "${JAVA_HOME}/bin/java" -jar #{libexec}/sandbox-picocli-2.4.5-bin.jar "$@"
       EOS
     end
   end
 
   test do
     output = shell_output("#{bin}/hello-nbbrd-picocli --version")
-    assert_match "2.4.4", output
+    assert_match "2.4.5", output
   end
 end
