@@ -1,11 +1,11 @@
-# Generated with JReleaser 1.14.0 at 2024-10-21T08:30:53.176442269Z
+# Generated with JReleaser 1.18.0 at 2025-05-19T13:34:21.526055516Z
 
 class HelloNbbrdNetbeans < Formula
   desc "Hello NBBRD"
   homepage "https://github.com/nbbrd/sandbox"
-  url "https://github.com/nbbrd/sandbox/releases/download/v2.5.0/sandbox-netbeans-standalone-2.5.0-osx-x86_64.zip"
-  version "2.5.0"
-  sha256 "58a5d2d965bad4c4e2a351c1a758c52ab5f72d3a1f0bab35e767539d99fee74d"
+  url "https://github.com/nbbrd/sandbox/releases/download/v2.5.1/sandbox-netbeans-standalone-2.5.1-osx-x86_64.zip"
+  version "2.5.1"
+  sha256 "94f8e02dc77363cef70b94a0613695e349dcafe20709e45d94abb2e106b2285f"
   license "European Union Public Licence (EUPL)"
 
 
@@ -16,6 +16,6 @@ class HelloNbbrdNetbeans < Formula
 
   test do
     output = shell_output("#{bin}/hello-nbbrd-netbeans --version")
-    assert_match "2.5.0", output
+    assert_match "2.5.1", output
   end
 end
